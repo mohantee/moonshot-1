@@ -1,5 +1,5 @@
 import { QueryClientProvider } from "react-query";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import { queryClient } from "@/lib/query";
 import { QueryParamProvider } from "use-query-params";
 import { ReactRouter6Adapter } from "use-query-params/adapters/react-router-6";
@@ -13,6 +13,7 @@ function App() {
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/results" element={<Results />} />
+            <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </QueryParamProvider>
       </BrowserRouter>
